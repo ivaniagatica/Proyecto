@@ -1,0 +1,50 @@
+﻿@model PrecioEncabezado
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<body>
+    <div class="card">
+        <div clas="card-body">
+
+            <form asp-action="IdUsuario" asp-controller="Home" method="post">
+                <input asp-for="IdUsuario" type="hidden" class="form-control">
+                <div class="form-floating mb-3">
+
+                    <input asp-for=" FechaPrecioEncabezado " type="text" class="form-control" placeholder="Nombre">
+                    <label for="floatingInput">Nombre completo</label>
+                    <span asp-validation-for=" FechaPrecioEncabezado " class="text-danger"></span>
+
+                </div>
+                <div class="form-floating">
+                    <input asp-for="horaPrecioEncabezado" type="text" class="form-control" placeholder="Telefono">
+                    <label for="floatingInút">Número telefónico</label>
+                    <span asp-validation-for="horaPrecioEncabezado" class="text-danger"></span>
+                </div>
+
+                <br />
+
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <a asp-action="agrsr otro formulario" asp-controller="Home" class="btn btn-warning"> volver a la lista</a>
+            </form>
+
+        </div>
+    </div>
+
+
+    <br />
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

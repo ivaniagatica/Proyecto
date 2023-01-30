@@ -1,0 +1,84 @@
+﻿@model List<PrecioDetalle>
+
+
+@{
+    ViewData["Title"] = "Privacy";
+}
+
+<h1>Privacy</h1>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<br/>
+
+
+
+<body>
+    <div class="row g-2">
+        <div class="col-md">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="floatingInputGrid" placeholder="Fecha ingresar informacion" value="">
+                <label for="floatingInputGrid">Fecha ingereso </label>
+            </div>
+
+        </div>
+        <div class="col-md">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="floatingInputGrid" placeholder="Fecha ingresar informacion" value="">
+                <label for="floatingInputGrid">Fecha de modificacion </label>
+            </div>
+
+        </div>
+
+
+    </div>
+    <br />
+    <br />
+    <input type="search" class="form-control ds-input" id="search-input" placeholder="Search" aria-label="Search for " autocomplete="on" data-docs-version="5.1" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;" />
+    <br />
+    <section>
+        <div class="container-fluid h-100">
+            <div class="row w-100">
+                <div class="col v-center">
+                    <br />
+                    <a asp-action="Guardar" asp-controller="Home" class="btn btn-success"> <i class="bi bi-plus-circle-fill"></i> Crear un Nuevo</a>
+                    <a asp-action="Exportar" asp-controller="Home" class="btn btn-primary"> <i class="bi bi-plus-circle-fill"></i>Exportar Archivo</a>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="card">
+        <div clas="card-body">
+
+            <table class="table table-bordered border-primary">
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Descripcion</th>
+                        <th>Moneda</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var items in Model)
+                    {
+                        <tr>
+                            <td>@items.NumeroArticulo</td>
+                            <td>@items.Articulos</td>
+                            <td>@items.PrecioLista</td>
+                            <td> <a asp-action="Editar" asp-controller="Home" class="btn btn-primary btn-sm" asp-route-IdPrecioDetalle="@items.IdPrecioDetalle"><i class="bi bi-pencil-square"></i> Editar </a> </td>
+                            <td> <a asp-action="Eliminar" asp-controller="Home" class="btn btn-danger btn-sm" asp-route-IdPrecioDetalle="@items.IdPrecioDetalle"> <i class="bi bi-trash3-fill"></i>Eliminar </a> </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
